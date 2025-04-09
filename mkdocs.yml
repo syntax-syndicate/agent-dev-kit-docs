@@ -131,6 +131,8 @@ nav:
     - events/index.md
   - Context:
     - context/index.md
+  - Evaluate:
+    - evaluate/index.md
   - Deploy:
     - deploy/index.md
     - Local testing: deploy/local-testing.md

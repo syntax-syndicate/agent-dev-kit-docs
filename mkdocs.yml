@@ -141,6 +141,3 @@ nav:
     - Responsible Agents: guides/responsible-agents.md
   - API Reference:
     - API Reference: api-reference/index.md
-  - Resources:
-    - Release Notes: resources/release-notes.md
-    - Contribute: resources/contribute.md

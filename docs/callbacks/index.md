@@ -23,28 +23,7 @@ Callbacks are a cornerstone feature of ADK, providing a powerful mechanism to ho
 **How are they added?** You register callbacks by passing your defined Python functions as arguments to the agent's constructor (`__init__`) when you create an instance of `Agent` or `LlmAgent`.
 
 ```py
-# agents/llm_agent.py (Illustrative Snippet)
-from google.adk.agents import LlmAgent, LlmRequest, LlmResponse, CallbackContext
-from typing import Optional
-
-# --- Define your callback function ---
-def my_before_model_logic(
-    callback_context: CallbackContext, llm_request: LlmRequest
-) -> Optional[LlmResponse]:
-    print(f"Callback running before model call for agent: {callback_context.agent_name}")
-    # ... your custom logic here ...
-    return None # Allow the model call to proceed
-
-# --- Register it during Agent creation ---
-my_agent = LlmAgent(
-    name="MyCallbackAgent",
-    model="gemini-2.0-flash-exp", # Or your desired model
-    instruction="Be helpful.",
-    # Other agent parameters...
-    before_model_callback=my_before_model_logic # Pass the function here
-)
-
-print(f"Agent '{my_agent.name}' created with a before_model_callback.")
+--8<-- "examples/python/snippets/callbacks/callback_basic.py:callback_basic"
 ```
 
 ## The Callback Mechanism: Interception and Control
@@ -76,68 +55,7 @@ When the ADK framework encounters a point where a callback can run (e.g., just b
 This example demonstrates the common pattern for a guardrail using `before_model_callback`.
 
 ```py
-# agents/llm_agent.py (Illustrative Snippet)
-from google.adk.agents import CallbackContext, LlmRequest, LlmResponse
-from google.genai import types # For types.Content
-from typing import Optional
-
-# Example for before_model_callback
-def block_forbidden_input(
-    callback_context: CallbackContext, llm_request: LlmRequest
-) -> Optional[LlmResponse]:
-    """
-    Checks the last user message for a forbidden phrase.
-    If found, returns a predefined LlmResponse to block the LLM call.
-    Otherwise, returns None to allow the call.
-    """
-    agent_name = callback_context.agent_name
-    last_user_message_text = ""
-
-    # Safely get the last user message text
-    if llm_request.contents:
-        # Find the last content object with role 'user'
-        user_contents = [c for c in llm_request.contents if c.role == 'user']
-        if user_contents:
-            last_content = user_contents[-1]
-            if last_content.parts and last_content.parts[0].text:
-                last_user_message_text = last_content.parts[0].text
-
-    print(f"[Callback - {agent_name}] Checking input: '{last_user_message_text[:50]}...'")
-
-    # --- Guardrail Logic ---
-    if "highly restricted topic" in last_user_message_text.lower():
-        print(f"[Callback - {agent_name}] Forbidden topic detected! Blocking LLM call.")
-
-        # Create the response object to return *instead* of calling the LLM
-        blocked_response = LlmResponse(
-            content=types.Content(
-                role="model", # Mimic a model response role
-                parts=[types.Part(text="I am unable to discuss that topic.")]
-            )
-            # Optionally include error codes/messages if relevant
-            # error_code="POLICY_VIOLATION",
-            # error_message="Request blocked due to content policy."
-        )
-        # Update state to track violations (optional)
-        callback_context.state['policy_violations'] = callback_context.state.get('policy_violations', 0) + 1
-
-        return blocked_response # <-- OVERRIDE: Skip LLM call, use this response.
-
-    # --- No blocking condition met ---
-    else:
-        print(f"[Callback - {agent_name}] Input OK. Allowing LLM call.")
-        # Optionally modify llm_request here if needed before proceeding
-        # e.g., llm_request.config.temperature = 0.2
-
-        return None # <-- ALLOW: Proceed with the default behavior (call LLM).
-
-# Agent definition using the callback
-guardrail_agent = LlmAgent(
-    name="GuardrailAgent",
-    model="gemini-2.0-flash-exp",
-    instruction="Answer user questions.",
-    before_model_callback=block_forbidden_input
-)
+--8<-- "examples/python/snippets/callbacks/before_model_callback.py"
 ```
 
 By understanding this mechanism of returning `None` versus returning specific objects, you can precisely control the agent's execution path, making callbacks an essential tool for building sophisticated and reliable agents with ADK.

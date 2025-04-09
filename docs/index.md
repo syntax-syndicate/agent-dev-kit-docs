@@ -11,14 +11,21 @@ hide:
 </div>
 
 <p style="text-align:center; font-size: 1.2em;">
-  <b>Build, evaluate, and deploy sophisticated AI agents with code-first flexibility!</b>
+  <b>An open-source AI agent framework integrated with Gemini and Google</b><br/>
 </p>
 
-<p style="text-align:center;"> Agent Development Kit (ADK) is an
-open-source, code-first Python toolkit designed to simplify building,
-evaluating, and deploying advanced AI agents anywhere. It's designed for
-developers building AI applications or teams needing to rapidly prototype and
-deploy robust agent-based solutions.</p>
+
+
+
+## What is Agent Development Kit?
+
+Agent Development Kit (ADK) is a flexible and modular framework for **developing
+and deploying AI agents**. ADK can be used with popular LLMs and open-source
+generative AI tools and is designed with a focus on **tight integration with the
+Google ecosystem and Gemini models**. ADK makes it **easy to get started with
+simple agents** powered by Gemini models and Google AI tools while providing the
+control and structure needed for **more complex agent architectures and
+orchestration**.
 
 <div class="install-command-container">
   <p style="text-align:center;">
@@ -35,17 +42,9 @@ deploy robust agent-based solutions.</p>
   <a href="api-reference/" class="md-button">API Reference</a>
 </p>
 
-<!-- [TODO: Placeholder for diagram] -->
-
 ---
 
-## Why Agent Development Kit?
-
-ADK empowers developers seeking control and flexibility. Based on Google's
-internal best practices for production agents, it prioritizes a seamless
-developer experience integrated with standard coding workflows. Define agent
-behavior, orchestration, and tool use directly in Python, enabling robust
-debugging, versioning, and deployment.
+## Learn more
 
 <div class="grid cards" markdown>
 

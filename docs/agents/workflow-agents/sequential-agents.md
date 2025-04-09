@@ -37,8 +37,8 @@ SequentialAgent(sub_agents=[CodeWriterAgent, CodeReviewerAgent, CodeRefactorerAg
 
 This ensures the code is written, *then* reviewed, and *finally* refactored, in a strict, dependable order. **The output from each sub-agent is passed to the next by storing them in state via [`output_key`](../llm-agents.md)**.
 
-#### Full code
+???+ "Code"
 
-```py
---8<-- "examples/python/snippets/agents/workflow-agents/sequential-agent-code-development-agent.py"
-```
+    ```py
+    --8<-- "examples/python/snippets/agents/workflow-agents/sequential_agent_code_development_agent.py"
+    ```

@@ -44,8 +44,8 @@ Imagine researching multiple topics simultaneously:
 
 These research tasks are independent.  Using a `ParallelAgent` allows them to run concurrently, potentially reducing the total research time significantly compared to running them sequentially. The results from each agent would be collected separately after they finish.
 
-### Full code
+???+ "Code"
 
-```py
---8<-- "examples/python/snippets/agents/workflow-agents/parallel_agent_web_research.py"
-```
+    ```py
+    --8<-- "examples/python/snippets/agents/workflow-agents/parallel_agent_web_research.py"
+    ```

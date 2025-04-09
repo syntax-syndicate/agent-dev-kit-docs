@@ -79,10 +79,12 @@ Follow these steps to integrate an OpenAPI spec into your agent:
 5. **Instruct Agent**: Update your agent's instructions to inform it about the new API capabilities and the names of the tools it can use (e.g., `list_pets`, `create_pet`). The tool descriptions generated from the spec will also help the LLM.
 6. **Run Agent**: Execute your agent using the `Runner`. When the LLM determines it needs to call one of the APIs, it will generate a function call targeting the appropriate `RestApiTool`, which will then handle the HTTP request automatically.
 
-## Code Example: Pet Store API
+## Example
 
 This example demonstrates generating tools from a simple Pet Store OpenAPI spec (using `httpbin.org` for mock responses) and interacting with them via an agent.
 
-```python title="openapi_example.py"
---8<-- "examples/python/snippets/tools/openapi_tool.py"
-```
+???+ "Code: Pet Store API"
+
+    ```python title="openapi_example.py"
+    --8<-- "examples/python/snippets/tools/openapi_tool.py"
+    ```

@@ -131,7 +131,9 @@ Finally, you instantiate your `StoryFlowAgent` and use the `Runner` as usual.
 
 ## Full Code Example
 
-```python
-# Full runnable code for the StoryFlowAgent example
---8<-- "examples/python/snippets/agents/custom-agent/storyflow_agent.py"
-```
+???+ "Storyflow Agent"
+
+    ```python
+    # Full runnable code for the StoryFlowAgent example
+    --8<-- "examples/python/snippets/agents/custom-agent/storyflow_agent.py"
+    ```

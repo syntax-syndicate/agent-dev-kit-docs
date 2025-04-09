@@ -208,7 +208,7 @@ If none of these options satisfy your requirements, you can build your own code 
 
 ### Evaluations
 
-See [Evaluate Agents](../guides/evaluate-agents.md).
+See [Evaluate Agents](../evaluate/index.md).
 
 ### VPC-SC Perimeters and Network Controls
 

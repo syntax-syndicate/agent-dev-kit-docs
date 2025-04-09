@@ -12,9 +12,11 @@ These callbacks are available on *any* agent that inherits from `BaseAgent` (inc
 
 **Purpose:** Ideal for setting up resources or state needed only for this specific agent's run, performing validation checks on the session state (callback\_context.state) before execution starts, logging the entry point of the agent's activity, or potentially modifying the invocation context before the core logic uses it.
 
-```py
---8<-- "examples/python/snippets/callbacks/before_agent_callback.py"
-```
+??? "Code"
+
+    ```py
+    --8<-- "examples/python/snippets/callbacks/before_agent_callback.py"
+    ```
 
 ### After Agent Callback
 
@@ -22,9 +24,11 @@ These callbacks are available on *any* agent that inherits from `BaseAgent` (inc
 
 **Purpose:** Useful for cleanup tasks, post-execution validation, logging the completion of an agent's activity, modifying final state, or augmenting/replacing the agent's final output.
 
-```py
---8<-- "examples/python/snippets/callbacks/after_agent_callback.py"
-```
+??? "Code"
+
+    ```py
+    --8<-- "examples/python/snippets/callbacks/after_agent_callback.py"
+    ```
 
 ## LLM Interaction Callbacks
 
@@ -39,9 +43,11 @@ These callbacks are specific to `LlmAgent` and provide hooks around the interact
 **Return Value Effect:**  
 If the callback returns `None`, the LLM continues its normal workflow. If the callback returns an `LlmResponse` object, then the call to the LLM is **skipped**. The returned `LlmResponse` is used directly as if it came from the model. This is powerful for implementing guardrails or caching.
 
-```py
---8<-- "examples/python/snippets/callbacks/before_model_callback.py"
-```
+??? "Code"
+
+    ```py
+    --8<-- "examples/python/snippets/callbacks/before_model_callback.py"
+    ```
 
 ### After Model Callback
 
@@ -55,9 +61,11 @@ If the callback returns `None`, the LLM continues its normal workflow. If the ca
 * parsing structured data from the LLM response and storing it in `callback_context.state`
 * or handling specific error codes.
 
-```py
---8<-- "examples/python/snippets/callbacks/after_model_callback.py"
-```
+??? "Code"
+
+    ```py
+    --8<-- "examples/python/snippets/callbacks/after_model_callback.py"
+    ```
 
 ## Tool Execution Callbacks
 
@@ -74,9 +82,11 @@ These callbacks are also specific to `LlmAgent` and trigger around the execution
 1. If the callback returns `None`, the tool's `run_async` method is executed with the (potentially modified) `args`.  
 2. If a dictionary is returned, the tool's `run_async` method is **skipped**. The returned dictionary is used directly as the result of the tool call. This is useful for caching or overriding tool behavior.  
 
-```py
---8<-- "examples/python/snippets/callbacks/before_tool_callback.py"
-```
+??? "Code"
+
+    ```py
+    --8<-- "examples/python/snippets/callbacks/before_tool_callback.py"
+    ```
 
 ### After Tool Callback
 
@@ -89,6 +99,8 @@ These callbacks are also specific to `LlmAgent` and trigger around the execution
 1. If the callback returns `None`, the original `tool_response` is used.  
 2. If a new dictionary is returned, it **replaces** the original `tool_response`. This allows modifying or filtering the result seen by the LLM.
 
-```py
---8<-- "examples/python/snippets/callbacks/after_tool_callback.py"
-```
+??? "Code"
+
+    ```py
+    --8<-- "examples/python/snippets/callbacks/after_tool_callback.py"
+    ```

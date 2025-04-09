@@ -30,21 +30,21 @@ Strive to make your return values as descriptive as possible. *For example,* ins
 
 The docstring of your function serves as the tool's description and is sent to the LLM. Therefore, a well-written and comprehensive docstring is crucial for the LLM to understand how to use the tool effectively. Clearly explain the purpose of the function, the meaning of its parameters, and the expected return values.
 
-### Example
+??? "Example"
 
-This tool is a python function which obtains the Stock price of a given Stock ticker/ symbol.
+    This tool is a python function which obtains the Stock price of a given Stock ticker/ symbol.
 
-<u>Note</u>: You need to `pip install yfinance` library before using this tool.
+    <u>Note</u>: You need to `pip install yfinance` library before using this tool.
 
-```py
---8<-- "examples/python/snippets/tools/function-tools/func_tool.py"
-```
+    ```py
+    --8<-- "examples/python/snippets/tools/function-tools/func_tool.py"
+    ```
 
-The return value from this tool will be wrapped into a dictionary.
+    The return value from this tool will be wrapped into a dictionary.
 
-```json
-{"result": "$123"}
-```
+    ```json
+    {"result": "$123"}
+    ```
 
 ### Best Practices
 
@@ -110,11 +110,11 @@ Each value you yield is packaged into a FunctionResponse by the framework and se
 
 The Python object your generator function returns is considered the final result of the tool execution. The framework packages this value (even if it's None) into the content of the final `FunctionResponse` sent back to the LLM, indicating the tool execution is complete.
 
-### Example: File Processing Simulation
+??? "Example: File Processing Simulation"
 
-```py
---8<-- "examples/python/snippets/tools/function-tools/file_processor.py"
-```
+    ```py
+    --8<-- "examples/python/snippets/tools/function-tools/file_processor.py"
+    ```
 
 #### Key aspects of this example
 
@@ -152,11 +152,11 @@ The `AgentTool` class provides the following attributes for customizing its beha
 
 * **skip\_summarization: bool:** If set to True, the framework will **bypass the LLM-based summarization** of the tool agent's response. This can be useful when the tool's response is already well-formatted and requires no further processing.
 
-### Example
+??? "Example"
 
-```py
---8<-- "examples/python/snippets/tools/function-tools/summarizer.py"
-```
+    ```py
+    --8<-- "examples/python/snippets/tools/function-tools/summarizer.py"
+    ```
 
 ### How it works
 

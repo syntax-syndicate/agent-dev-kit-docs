@@ -166,12 +166,13 @@ For more complex reasoning involving multiple steps or executing code:
 
 ## Putting It Together: Example
 
-Here's the complete basic `capital_agent`:
+??? "Code"
+    Here's the complete basic `capital_agent`:
 
-```python
-# Full example code for the basic capital agent
---8<-- "examples/python/snippets/agents/llm-agent/capital_agent.py"
-```
+    ```python
+    # Full example code for the basic capital agent
+    --8<-- "examples/python/snippets/agents/llm-agent/capital_agent.py"
+    ```
 
 _(This example demonstrates the core concepts. More complex agents might incorporate schemas, context control, planning, etc.)_
 

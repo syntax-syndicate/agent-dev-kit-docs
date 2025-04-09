@@ -39,8 +39,8 @@ Imagine a scenario where you want to iteratively improve a document:
 
 In this setup, the `LoopAgent` would manage the iterative process.  The `CriticAgent` could be **designed to return a "STOP" signal when the document reaches a satisfactory quality level**, preventing further iterations. Alternatively, the `max_iterations` parameter could be used to limit the process to a fixed number of cycles, or external logic could be implemented to make stop decisions. The **loop would run at most five times**, ensuring the iterative refinement doesn't continue indefinitely.
 
-#### Full code
+???+ "Full Code"
 
-```py
---8<-- "examples/python/snippets/agents/workflow-agents/loop_agent_doc_improv_agent.py"
-```
+    ```py
+    --8<-- "examples/python/snippets/agents/workflow-agents/loop_agent_doc_improv_agent.py"
+    ```

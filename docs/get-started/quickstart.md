@@ -113,15 +113,9 @@ parent_folder/      <-- navigate to this directory
         .env
 ```
 
-=== "adk run"
+There are multiple ways to interact with your agent:
 
-    Run the following command, to chat with your Google Search agent.
-
-    ```
-    adk run multi_tool_agent
-    ```
-    To exit, use Cmd/Ctrl+C.
-
+![agent-interaction.png](../assets/agent-interaction.png)
 === "adk web (dev UI)"
     Run the following command to launch the **dev UI**.
 
@@ -129,16 +123,40 @@ parent_folder/      <-- navigate to this directory
     adk web
     ```
 
-    Open the URL provided (usually `http://localhost:8000` or
-    `http://127.0.0.1:8000`) **directly in your browser**. This connection stays
-    entirely on your local machine. Select `multi_tool_agent` and interact with the agent.
+    **Step 1:** Open the URL provided (usually `http://localhost:8000` or `http://127.0.0.1:8000`) directly in your browser.
+    
+    **Step 2.** In the top-left corner of the UI, you can select your agent in the dropdown. Select "my_sample_agent".
 
-    !!!note
+    !!!note "Troubleshooting"
         
         If you do not see "my_sample_agent" in the dropdown menu, make sure you are running `adk web` in the **parent folder** of your agent folder (i.e. the parent folder of my_sample_agent).
 
-    1. In the top-left corner of the UI, you can select your agent in the dropdown. Select "my_sample_agent".
-    2. Now you can chat with your agent.
+    **Step 3.** Now you can chat with your agent using the textbox:
+
+    ![adk-web-dev-ui-chat.png](../assets/adk-web-dev-ui-chat.png)
+
+    **Step 4.** You can also inspect individual function calls, responses and model responses by clicking on the actions:
+
+    ![adk-web-dev-ui-function-call.png](../assets/adk-web-dev-ui-function-call.png)
+
+    **Step 5.** You can also enable your microphone and talk to your agent:
+
+    ![adk-web-dev-ui-audio.png](../assets/adk-web-dev-ui-audio.png)
+    
+    !!!note "Model support"
+    
+        Currently only `gemini-2.0-flash-exp` supports talking to your agent via audio/video. For more information, see the [documentation on the Live API on Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal-live-api)
+
+
+=== "adk run"
+
+    Run the following command, to chat with your Google Search agent.
+
+    ```
+    adk run multi_tool_agent
+    ```
+
+    To exit, use Cmd/Ctrl+C.
 
 ### 📝 Example prompts to try
 

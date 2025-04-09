@@ -3,7 +3,7 @@ from google.adk.tools import google_search
 
 root_agent = Agent(
    # A unique name for the agent.
-   name="basic_search_agent",
+   name="google_search_agent",
    # The Large Language Model (LLM) that agent will use.
    model="gemini-2.0-flash-exp",
    # A short description of the agent's purpose.

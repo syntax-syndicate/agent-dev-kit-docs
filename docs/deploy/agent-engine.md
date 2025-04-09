@@ -64,7 +64,7 @@ Use `reasoning_engines.AdkApp()` to wrap your agent to make it deployable to Age
 from vertexai.preview import reasoning_engines
 
 app = reasoning_engines.AdkApp(
-    agent_engine=root_agent,
+    agent=root_agent,
     enable_tracing=True,
 )
 ```

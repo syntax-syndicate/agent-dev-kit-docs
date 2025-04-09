@@ -35,9 +35,9 @@ Using the terminal, create the folder structure:
 ```bash
 mkdir multi_tool_agent/
 touch \
-multi_tool_agent/__init__.py \
-multi_tool_agent/agent.py \
-multi_tool_agent/.env
+    multi_tool_agent/__init__.py \
+    multi_tool_agent/agent.py \
+    multi_tool_agent/.env
 ```
 
 Your structure:
@@ -115,8 +115,7 @@ parent_folder/      <-- navigate to this directory
 
 There are multiple ways to interact with your agent:
 
-![agent-interaction.png](../assets/agent-interaction.png)
-=== "adk web (dev UI)"
+=== "Dev UI (adk web)"
     Run the following command to launch the **dev UI**.
 
     ```
@@ -125,11 +124,11 @@ There are multiple ways to interact with your agent:
 
     **Step 1:** Open the URL provided (usually `http://localhost:8000` or `http://127.0.0.1:8000`) directly in your browser.
     
-    **Step 2.** In the top-left corner of the UI, you can select your agent in the dropdown. Select "my_sample_agent".
+    **Step 2.** In the top-left corner of the UI, you can select your agent in the dropdown. Select "multi_tool_agent".
 
     !!!note "Troubleshooting"
         
-        If you do not see "my_sample_agent" in the dropdown menu, make sure you are running `adk web` in the **parent folder** of your agent folder (i.e. the parent folder of my_sample_agent).
+        If you do not see "multi_tool_agent" in the dropdown menu, make sure you are running `adk web` in the **parent folder** of your agent folder (i.e. the parent folder of multi_tool_agent).
 
     **Step 3.** Now you can chat with your agent using the textbox:
 
@@ -145,10 +144,10 @@ There are multiple ways to interact with your agent:
     
     !!!note "Model support"
     
-        Currently only `gemini-2.0-flash-exp` supports talking to your agent via audio/video. For more information, see the [documentation on the Live API on Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal-live-api)
+        Currently only `gemini-2.0-flash-exp` supports talking to your agent via audio/video, and can be used either with your API key from Google AI Studio or via [Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal-live-api).
 
 
-=== "adk run"
+=== "Terminal (adk run)"
 
     Run the following command, to chat with your Google Search agent.
 
@@ -156,7 +155,18 @@ There are multiple ways to interact with your agent:
     adk run multi_tool_agent
     ```
 
+    ![adk-run.png](../assets/adk-run.png)
+
     To exit, use Cmd/Ctrl+C.
+
+=== "API Server (adk api_server)"
+
+    `adk api_server` enables you to create a local FastAPI server in a single command, enabling you to test local cURL requests before you deploy your agent.
+
+    ![adk-api-server.png](../assets/adk-api-server.png)
+
+    To learn how to use `adk api_server`, see the [documentation on local testing](local-testing.md).
+
 
 ### 📝 Example prompts to try
 
